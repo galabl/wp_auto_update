@@ -24,14 +24,17 @@ LOGS="logs"
 BACKUPS="backups"
 GLOBAL_LOG="$SCRIPT_FOLDER/global.log"
 
-SITES="$(ls -a $SITES_PATH | sed -e '1,2d')"
-
 # Boolean for sending email notification
 UPDATED=false
 
 # =========================================================================
 # ============================ System Check ===============================
 # =========================================================================
+
+# Check is script folder for storing logs and backups created
+if [ ! -d "$SCRIPT_FOLDER" ]; then
+	mkdir $SCRIPT_FOLDER >> /dev/null 2>&1
+fi
 
 WP_CLI=/usr/local/bin/wp
 if [ -x "$WP_CLI" ]; then
@@ -47,12 +50,6 @@ if [ ! -d "$SITES_PATH" ]; then
 	echo "SITES_PATH Variable is not defined correctly. $SITES_PATH folder does not exist." >> $GLOBAL_LOG
 	exit 1
 fi 
-
-# Check is script folder for storing logs and backups created
-if [ ! -d "$SCRIPT_FOLDER" ]; then
-	echo "Script folder doesn't exist. Creating $SCRIPT_FOLDER..." >> $GLOBAL_LOG
-	mkdir $SCRIPT_FOLDER >> /dev/null 2>&1
-fi
 
 # =========================================================================
 # ========================== Script Functions =============================
@@ -84,6 +81,7 @@ else
 	echo "wp_auto_update" > $SCRIPT_FOLDER/$SKIP_FILE
 fi
 
+SITES="$(ls -a $SITES_PATH | sed -e '1,2d')"
 for SITE_NAME in $SITES
 do
 	SITE_PATH="$SITES_PATH/$SITE_NAME$SITES_WP_ROOT"
