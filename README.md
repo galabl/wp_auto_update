@@ -13,7 +13,12 @@ Find the following variables and edit them if needed\
 **SITES_PATH** - default: */var/www/html* \
 **SITES_WP_ROOT** - default */public_html* (delete if you don't have this)\
 **MAIL_SUBJECT**\
-**MAIL_TO**
+**MAIL_TO**\
+Give the script execute permission `chmod +x wp_auto_update.sh`\
+Run it with `./wp_auto_update.sh`\
+System wide use:\
+Move the script to the */usr/local/bin* `sudo mv wp_auto_update.sh /usr/local/bin/wp_auto_update`\
+Run it with `wp_auto_update` anywhere (Useful for cronjobs)
 
 ## TODO
 - [ ] Create email notification
