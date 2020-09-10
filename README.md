@@ -16,4 +16,4 @@ Find the following variables and edit them if needed\
 **MAIL_TO**
 
 ## TODO
-- [] Create email notification
+- [ ] Create email notification
