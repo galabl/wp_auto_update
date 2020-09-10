@@ -20,5 +20,10 @@ System wide use:\
 Move the script to the */usr/local/bin* `sudo mv wp_auto_update.sh /usr/local/bin/wp_auto_update`\
 Run it with `wp_auto_update` anywhere (Useful for cronjobs)
 
+## Logging & Backups
+Global log file can be found under **SITES_PATH**/wp_auto_update folder.
+Site logs can be found under **SITES_PATH**/**SITE_FOLDER_NAME**/logs/date
+Site logs can be found under **SITES_PATH**/**SITE_FOLDER_NAME**/backups/date
+
 ## TODO
 - [ ] Create email notification
