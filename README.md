@@ -1,2 +1,19 @@
-# wp_auto_update
-A simple bash script that creates a website backup then updates core/plugins
+# WP Auto Update
+
+## Description
+This is a simple bash script that's using [WP CLI](https://wp-cli.org/) to update the WordPress Core/Plugins Automatically.
+WordPress already has a feature like this so what this script does differently, it creates a full website backup before the update, making it safe for live websites so they could be reverted easily if anything bad happens during the update.
+
+The code is completely open source, you can change it however you like
+
+## Usage
+Note:
+It's not possible to run this code as **root**!\
+Find the following variables and edit them if needed\
+**SITES_PATH** - default: */var/www/html* \
+**SITES_WP_ROOT** - default */public_html* (delete if you don't have this)\
+**MAIL_SUBJECT**\
+**MAIL_TO**
+
+## TODO
+- [] Create email notification
